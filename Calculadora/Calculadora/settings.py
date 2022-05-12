@@ -78,8 +78,13 @@ WSGI_APPLICATION = 'Calculadora.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+            #Caminho para o arquivo my.cnf
+            'read_default_file': 'C:\workspace\Calculadora\Calculadora\my.cnf',
+            #That option escalates warnings into errors when data are truncated upon insertion, so Django highly recommends activating a strict mode for MySQL to prevent data loss
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        }
     }
 }
 

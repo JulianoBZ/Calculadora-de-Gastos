@@ -1,4 +1,4 @@
-#from django.shortcuts import render
+from django.shortcuts import render
 
 from django.views.generic import TemplateView
 
@@ -7,3 +7,10 @@ from django.views.generic import TemplateView
 class IndexView(TemplateView):
     template_name = "index.html"
 
+class FormularioView(TemplateView):
+    template_name = "formulario.html"
+
+def formreq(request):
+    if request.method=="POST":
+        print("Postado")
+    return render (request, 'formulario.html')
